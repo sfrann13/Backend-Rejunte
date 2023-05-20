@@ -10,16 +10,16 @@ exports.create = (req, res) => {
   }
 
   // Crea un Trago
-  const Trago = new Trago({
+  const trago = new Trago({
     nombre: req.body.nombre,
     description: req.body.description,
-    ingredientes: req.body.ingredientes || "",
-    preparacion: req.body.preparacion || "",
-    disponible: req.body.disponible || true
+    ingredientes: req.body.ingredientes,
+    preparacion: req.body.preparacion ,
+    disponible: req.body.disponible
   });
 
   // Guarda un Trago en DB
-  Trago.create(Trago, (err, data) => {
+  Trago.create(trago, (err, data) => {
     if (err)
       res.status(500).send({
         message:

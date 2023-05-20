@@ -2,9 +2,11 @@ const sql = require("./db.js");
 
 // constructor
 const Trago = function(trago) {
-  this.title = trago.title;
+  this.nombre = trago.nombre;
   this.description = trago.description;
-  this.published = trago.published;
+  this.ingredientes = trago.ingredientes;
+  this.preparacion = trago.preparacion;
+  this.disponible = trago.disponible;
 };
 
 Trago.create = (newtrago, result) => {
@@ -39,11 +41,11 @@ Trago.findById = (id, result) => {
   });
 };
 
-Trago.getAll = (title, result) => {
+Trago.getAll = (nombre, result) => {
   let query = "SELECT * FROM trago";
 
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
+  if (nombre) {
+    query += ` WHERE nombre LIKE '%${nombre}%'`;
   }
 
   sql.query(query, (err, res) => {
@@ -58,8 +60,8 @@ Trago.getAll = (title, result) => {
   });
 };
 
-Trago.getAllPublished = result => {
-  sql.query("SELECT * FROM trago WHERE published=true", (err, res) => {
+Trago.getAllDisponible = result => {
+  sql.query("SELECT * FROM trago WHERE disponible=true", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -73,8 +75,8 @@ Trago.getAllPublished = result => {
 
 Trago.updateById = (id, trago, result) => {
   sql.query(
-    "UPDATE trago SET title = ?, description = ?, published = ? WHERE id = ?",
-    [trago.title, trago.description, trago.published, id],
+    "UPDATE trago SET nombre = ?, description = ?, ingredientes = ? , preparacion = ?, disponible = ? WHERE id = ?",
+    [trago.nombre, trago.description, trago.ingredientes, trago.preparacion , trago.disponible, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -108,7 +110,7 @@ Trago.remove = (id, result) => {
       return;
     }
 
-    console.log("tuto borrado con id: ", id);
+    console.log("trago borrado con id: ", id);
     result(null, res);
   });
 };
