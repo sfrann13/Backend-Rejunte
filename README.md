@@ -21,6 +21,17 @@ yarn start
 DB:
 https://app.planetscale.com/renatavitrich99/bdrejunte
 
+TABLE QUERY:
+CREATE TABLE `trago` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`nombre` varchar(255) NOT NULL,
+	`description` varchar(255),
+	`ingredientes` varchar(255) NOT NULL,
+	`preparacion` varchar(255) NOT NULL,
+	`disponible` tinyint(1) DEFAULT '1',
+	PRIMARY KEY (`id`)
+) ENGINE InnoDB,
+  CHARSET utf8mb3;
 
 APIS:
 
