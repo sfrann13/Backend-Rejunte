@@ -1,5 +1,23 @@
 # Node.js Rest API con Express & MySQL
 
+
+Project setup
+In the project directory, you can run:
+
+npm install
+# or
+yarn install
+or
+
+Compiles and hot-reloads for development
+npm start
+# or
+yarn start
+
+
+----------------------
+
+
 DB:
 https://app.planetscale.com/renatavitrich99/bdrejunte
 
@@ -28,16 +46,3 @@ APIS:
   router.delete("/", trago.deleteAll);
 
   MAIN: app.use('/api/trago', router);
-
-Project setup
-In the project directory, you can run:
-
-npm install
-# or
-yarn install
-or
-
-Compiles and hot-reloads for development
-npm start
-# or
-yarn start
