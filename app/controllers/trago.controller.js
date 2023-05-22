@@ -61,8 +61,8 @@ exports.findOne = (req, res) => {
 };
 
 // busca todos los trago que se publicaron
-exports.findAllPublished = (req, res) => {
-  Trago.getAllPublished((err, data) => {
+exports.getAllDisponible = (req, res) => {
+  Trago.getAllDisponible((err, data) => {
     if (err)
       res.status(500).send({
         message:
